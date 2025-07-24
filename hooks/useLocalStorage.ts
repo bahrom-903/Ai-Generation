@@ -15,10 +15,19 @@ function useLocalStorage<T,>(key: string, initialValue: T): [T, (value: T) => vo
   const setValue = (value: T) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
-    } catch (error) {
-      console.error(error);
+      setStoredValue(valueToStore);
+    } catch (error: any) {
+      // Check for quota exceeded error names used by different browsers
+      if (
+        error.name === 'QuotaExceededError' || // Standard
+        error.name === 'NS_ERROR_DOM_QUOTA_REACHED' || // Firefox
+        (error.code && (error.code === 22 || error.code === 1014)) // Legacy
+      ) {
+        alert('Ошибка: Хранилище переполнено! Не удалось сохранить последние изменения. Пожалуйста, удалите несколько изображений из галереи, чтобы освободить место.');
+      } else {
+        console.error(`Error writing to localStorage for key “${key}”:`, error);
+      }
     }
   };
 
