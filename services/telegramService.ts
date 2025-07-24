@@ -3,13 +3,21 @@ import { FeedbackData } from "../types";
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-    console.warn("Telegram environment variables (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID) are not set. Feedback features will be disabled.");
+const areTelegramCredentialsSet = TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID;
+
+if (!areTelegramCredentialsSet) {
+    console.warn("Telegram environment variables (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID) are not set. Feedback features will be simulated.");
 }
 
 export const sendFeedback = async (feedback: FeedbackData): Promise<boolean> => {
-    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-        throw new Error("Telegram credentials are not configured.");
+    if (!areTelegramCredentialsSet) {
+        console.log("--- SIMULATING TELEGRAM FEEDBACK ---");
+        console.log("Type:", feedback.type);
+        console.log("Message:", feedback.message);
+        console.log("------------------------------------");
+        // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return true; // Simulate success
     }
 
     const message = `
