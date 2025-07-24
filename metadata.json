@@ -1,0 +1,5 @@
+{
+  "name": "Anime Gallery AI Generator",
+  "description": "An AI-powered application to generate and curate a gallery of anime-style images. Users can input prompts, select art styles, and manage their creations. The app features customizable themes and a responsive, modern interface.",
+  "requestFramePermissions": []
+}
