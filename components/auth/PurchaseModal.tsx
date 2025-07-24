@@ -42,29 +42,32 @@ const PackageSelection: React.FC<{creditId: string, onPackageSelect: (pkg: Credi
     return (
         <div className="space-y-3">
             <p className={`${theme.colors.text} opacity-80 text-center mb-4`}>Выберите подходящий пакет:</p>
-            {packages.map(pkg => (
-                <button
-                    key={pkg.id}
-                    onClick={() => onPackageSelect(pkg)}
-                    className={`w-full p-4 rounded-lg border text-left flex justify-between items-center transition-all ${theme.colors.border} ${theme.colors.cardBg} hover:border-fuchsia-400 hover:ring-2 hover:ring-fuchsia-400/50`}
-                >
-                    <div>
-                        <div className="flex items-center gap-2">
-                            <CREDITS_DATA[pkg.creditId].icon className="w-6 h-6" style={{color: CREDITS_DATA[pkg.creditId].color}}/>
-                            <span className={`${theme.colors.text} text-lg font-bold`}>{pkg.amount.toLocaleString('ru-RU')}</span>
-                        </div>
-                        {pkg.bonus && (
-                             <div className={`flex items-center gap-2 mt-1 text-xs ${theme.colors.text} opacity-70`}>
-                                <Icon className="w-4 h-4">{Icons.plus}</Icon>
-                                <span>{pkg.bonus.amount.toLocaleString('ru-RU')} {CREDITS_DATA[pkg.bonus.creditId].name} в подарок</span>
+            {packages.map(pkg => {
+                const CreditIcon = CREDITS_DATA[pkg.creditId].icon;
+                return (
+                    <button
+                        key={pkg.id}
+                        onClick={() => onPackageSelect(pkg)}
+                        className={`w-full p-4 rounded-lg border text-left flex justify-between items-center transition-all ${theme.colors.border} ${theme.colors.cardBg} hover:border-fuchsia-400 hover:ring-2 hover:ring-fuchsia-400/50`}
+                    >
+                        <div>
+                            <div className="flex items-center gap-2">
+                                <CreditIcon className="w-6 h-6" style={{color: CREDITS_DATA[pkg.creditId].color}}/>
+                                <span className={`${theme.colors.text} text-lg font-bold`}>{pkg.amount.toLocaleString('ru-RU')}</span>
                             </div>
-                        )}
-                    </div>
-                    <div className={`${theme.colors.accent} text-lg font-semibold`}>
-                        {pkg.price} ₽
-                    </div>
-                </button>
-            ))}
+                            {pkg.bonus && (
+                                 <div className={`flex items-center gap-2 mt-1 text-xs ${theme.colors.text} opacity-70`}>
+                                    <Icon className="w-4 h-4">{Icons.plus}</Icon>
+                                    <span>{pkg.bonus.amount.toLocaleString('ru-RU')} {CREDITS_DATA[pkg.bonus.creditId].name} в подарок</span>
+                                </div>
+                            )}
+                        </div>
+                        <div className={`${theme.colors.accent} text-lg font-semibold`}>
+                            {pkg.price} ₽
+                        </div>
+                    </button>
+                );
+            })}
         </div>
     )
 }
