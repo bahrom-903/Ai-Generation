@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { GeneratedImage, Theme } from '../types';
@@ -29,6 +30,8 @@ interface AppContextType {
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
+
+const GALLERY_LIMIT = 50; // A reasonable limit to prevent quota errors
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [themeId, setThemeId] = useLocalStorage('app-theme', 'cyberpunk');
@@ -79,11 +82,21 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const addImage = (image: GeneratedImage) => {
-    setImages([image, ...images]);
+    let updatedImages = [image, ...images];
+    if (updatedImages.length > GALLERY_LIMIT) {
+        alert(`Внимание: Достигнут лимит галереи (${GALLERY_LIMIT} изображений). Самые старые изображения удаляются для освобождения места.`);
+        updatedImages = updatedImages.slice(0, GALLERY_LIMIT);
+    }
+    setImages(updatedImages);
   };
   
   const addImages = (newImages: GeneratedImage[]) => {
-    setImages([...newImages, ...images]);
+    let combinedImages = [...newImages, ...images];
+    if (combinedImages.length > GALLERY_LIMIT) {
+        alert(`Внимание: Достигнут лимит галереи (${GALLERY_LIMIT} изображений). Самые старые изображения удаляются для освобождения места.`);
+        combinedImages = combinedImages.slice(0, GALLERY_LIMIT);
+    }
+    setImages(combinedImages);
   };
 
   const deleteImages = (ids: string[]) => {
