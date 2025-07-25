@@ -1,5 +1,10 @@
 import { GenerationConfig } from "../types";
 
+// Для локальной разработки указываем полный адрес бэкенд-сервера.
+// На Render или другом хостинге этот URL можно будет убрать или сделать динамическим,
+// так как запросы будут проксироваться автоматически.
+const API_BASE_URL = ''; // Используем относительный путь
+
 export const generateWithReplicate = async (prompt: string, negativePrompt: string, config: GenerationConfig): Promise<string[]> => {
     const imagePromises: Promise<string>[] = [];
 
@@ -18,7 +23,7 @@ export const generateWithReplicate = async (prompt: string, negativePrompt: stri
             
             try {
                 // This fetch call targets the backend server which proxies requests to Replicate.
-                const response = await fetch('/api/generate', {
+                const response = await fetch(`${API_BASE_URL}/api/generate`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
