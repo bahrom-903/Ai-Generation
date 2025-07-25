@@ -1,4 +1,3 @@
-
 import express from 'express';
 import Replicate from 'replicate';
 import dotenv from 'dotenv';
@@ -8,16 +7,28 @@ import { fileURLToPath } from 'url';
 
 dotenv.config();
 
+// --- Обязательная настройка для работы с путями в ES-модулях ---
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// -------------------------------------------------------------
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// --- НАСТРОЙКА MIDDLEWARE (ПРОМЕЖУТОЧНОГО ПО) ---
+// Используй CORS, это хорошая практика
+app.use(cors());
+// Позволяем серверу принимать JSON
+app.use(express.json());
+
+// --- ИНИЦИАЛИЗАЦИЯ КЛИЕНТОВ API ---
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
 
-app.use(cors());
-app.use(express.json());
-
+// =================================================================
+// --- СЕКЦИЯ API-РОУТОВ (Должна идти ПЕРЕД раздачей статики!) ---
+// =================================================================
 app.post('/api/generate', async (req, res) => {
   try {
     const { model_identifier, prompt, negative_prompt } = req.body;
@@ -48,21 +59,21 @@ app.post('/api/generate', async (req, res) => {
   }
 });
 
-// Serve static files from the React app
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const buildPath = path.join(__dirname, 'dist'); // Assuming the build output is in a 'dist' folder
+// =================================================================
+// --- СЕКЦИЯ РАЗДАЧИ ФРОНТЕНДА (Должна идти ПОСЛЕ всех API!) ---
+// =================================================================
 
-// Serve static files from root for local dev simplicity
-app.use(express.static(__dirname)); 
+// 1. Указываем Express, что папка 'dist' содержит статические файлы нашего сайта
+const buildPath = path.join(__dirname, 'dist');
+app.use(express.static(buildPath));
 
-
-// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
+// 2. На любой другой GET-запрос мы отдаем главный файл index.html из папки 'dist'
+// Это позволяет React Router'у управлять навигацией на стороне клиента
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(buildPath, 'index.html'));
 });
 
-
+// --- ЗАПУСК СЕРВЕРА ---
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту ${PORT}`);
 });
