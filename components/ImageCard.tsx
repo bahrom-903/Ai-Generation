@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { GeneratedImage } from '../types';
 import { useAppContext } from '../contexts/AppContext';
 import Icon from './Icon';
-import { Icons } from '../constants';
+import { ICONS } from '../constants';
 
 interface ImageCardProps {
   image: GeneratedImage;
@@ -59,7 +59,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
             onClick={() => toggleImageSelection(image.id)}
             className={`w-7 h-7 rounded-md border-2 flex items-center justify-center transition-all duration-200 ${isSelected ? `${theme.colors.accent.replace('text-','bg-')} ${theme.colors.border}` : `bg-black/40 hover:bg-black/60 ${theme.colors.border}`}`}
         >
-          {isSelected && <Icon className="w-5 h-5 text-black">{Icons.check}</Icon>}
+          {isSelected && <Icon className="w-5 h-5 text-black">{ICONS.check}</Icon>}
         </button>
         {/* Favorite */}
         <button
@@ -67,7 +67,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
             className={`w-7 h-7 rounded-md flex items-center justify-center transition-colors duration-200 ${image.isFavorite ? 'text-red-500 bg-red-500/30' : 'text-white bg-black/40 hover:bg-white/20'}`}
             title={image.isFavorite ? "Убрать из избранного" : "Добавить в избранное"}
         >
-            <Icon className="w-5 h-5">{Icons.heart}</Icon>
+            <Icon className="w-5 h-5">{ICONS.heart}</Icon>
         </button>
         {/* More Options Menu */}
         <div className="relative">
@@ -76,7 +76,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
                 className="w-7 h-7 rounded-md flex items-center justify-center text-white bg-black/40 hover:bg-white/20 transition-colors duration-200"
                 title="Больше опций"
             >
-                <Icon className="w-5 h-5">{Icons.more}</Icon>
+                <Icon className="w-5 h-5">{ICONS.more}</Icon>
             </button>
             {isMenuOpen && (
                 <div ref={menuRef} className={`absolute left-full top-0 ml-2 w-48 rounded-md shadow-lg ${theme.colors.main} ${theme.colors.border} border z-10 animate-fade-in`}>
