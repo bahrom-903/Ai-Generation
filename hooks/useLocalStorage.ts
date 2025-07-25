@@ -1,7 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
-function useLocalStorage<T,>(key: string, initialValue: T): [T, (value: T) => void] {
+function useLocalStorage<T,>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -12,22 +12,13 @@ function useLocalStorage<T,>(key: string, initialValue: T): [T, (value: T) => vo
     }
   });
 
-  const setValue = (value: T) => {
+  const setValue: Dispatch<SetStateAction<T>> = (value) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
       setStoredValue(valueToStore);
-    } catch (error: any) {
-      // Check for quota exceeded error names used by different browsers
-      if (
-        error.name === 'QuotaExceededError' || // Standard
-        error.name === 'NS_ERROR_DOM_QUOTA_REACHED' || // Firefox
-        (error.code && (error.code === 22 || error.code === 1014)) // Legacy
-      ) {
-        alert('Ошибка: Хранилище переполнено! Не удалось сохранить последние изменения. Пожалуйста, удалите несколько изображений из галереи, чтобы освободить место.');
-      } else {
-        console.error(`Error writing to localStorage for key “${key}”:`, error);
-      }
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.error(error);
     }
   };
 
