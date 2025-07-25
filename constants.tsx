@@ -27,13 +27,8 @@ export const ICONS = {
     cancel: <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
     profile: <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />,
     logout: <path strokeLinecap="round" strokeLinejoin="round"d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />,
-    eye: (
-  <>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639l4.43-6.191a1.011 1.011 0 011.583 0l4.43 6.191a1.012 1.012 0 010 .639l-4.43 6.191a1.011 1.011 0 01-1.583 0l-4.43-6.191z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-  </>
-),
-    eyeSlash: <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.774 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.243 4.243l-4.243-4.243" />,
+    eye: <><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639l4.43-6.191a1.011 1.011 0 011.583 0l4.43 6.191a1.012 1.012 0 010 .639l-4.43 6.191a1.011 1.011 0 01-1.583 0l-4.43-6.191z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></>,
+    eyeSlash: <><path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.774 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.243 4.243l-4.243-4.243" /></>,
     plus: <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9" />,
     lock: <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />,
     convert: <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />,
@@ -44,15 +39,9 @@ export const ICONS = {
     usdt: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18.5a8.5 8.5 0 110-17 8.5 8.5 0 010 17zm-1.875-5.938h-4v-1.5h4v-3.75h-5.5v-1.5h7.375v8.25h1.5v1.5h-1.5v2h-1.5v-2z"/></svg>,
     steam: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.843 14.125c-1.125 1.25-4.008 2.031-5.78 1.14-.945-.472-.852-1.633.23-2.024 1.133-.406 4.312-.601 5.46-1.5.586-.47.672-1.375-.023-1.782-1.078-.632-3.32-.398-3.32-.398l-3.21 2.898c-1.03.922-.608 1.946 0 2.461 1.734 1.484 7.238.93 7.238.93.985-.047 1.266-1.172.157-1.734zm1.53-4.57c-.773.282-1.704.25-2.414-.14-3.14-.852-4.133-3.14-4.133-3.14s.422.844 2.82 1.633c2.72.633 4.407.024 4.407.024s-.282 1.156-.68 1.625zM12.023 9a3 3 0 110-6 3 3 0 010 6z" /></svg>,
     currencyFree: <path strokeLinecap="round" strokeLinejoin="round" d="M21.125 8.875 12 3.75l-9.125 5.125M21.125 8.875v8.25a2.25 2.25 0 0 1-2.25 2.25H5.125a2.25 2.25 0 0 1-2.25-2.25v-8.25M12 12.75v6.75" />,
-    currencyData: (
-  <>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 110 18 9 0 010-18z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-  </>
-),
+    currencyData: <><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 110 18 9 9 0 010-18z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" /></>,
     currencyGold: <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9a9 9 0 119 0zM16.5 18.75a9 9 0 00-9 0m9 0h.008v.008h-.008v-.008zm-9 0h-.008v.008h.008v-.008zM12 9.75V14.25m-2.25-4.5a2.25 2.25 0 012.25-2.25a2.25 2.25 0 012.25 2.25" />,
-    currencySilver: <path strokeLinecap="round" strokeLinejoin="round" d="m15.49 10.03-6.98-6.98a.75.75 0 0 0-1.06 1.06l6.98 6.98 2.5-2.5a.75.75 0 0 0-1.44-.38l-1.02 1.84m-3.44-5.02L4.51 3.53a.75.75 0 1 0-1.06 1.06l2.02 2.02" />,
+    currencySilver: <><path strokeLinecap="round" strokeLinejoin="round" d="m15.49 10.03-6.98-6.98a.75.75 0 0 0-1.06 1.06l6.98 6.98 2.5-2.5a.75.75 0 0 0-1.44-.38l-1.02 1.84m-3.44-5.02L4.51 3.53a.75.75 0 1 0-1.06 1.06l2.02 2.02" /></>,
     currencyStar: <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />,
     currencyTask: <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />,
     currencyMythic: <path strokeLinecap="round" strokeLinejoin="round" d="M11.918 2.202a1.05 1.05 0 0 1 1.164 0l6.302 4.41a1.05 1.05 0 0 1 .516.91v8.956a1.05 1.05 0 0 1-.516.91l-6.302 4.41a1.05 1.05 0 0 1-1.164 0l-6.302-4.41a1.05 1.05 0 0 1-.516-.91V7.522a1.05 1.05 0 0 1 .516-.91L11.918 2.202Z" />,

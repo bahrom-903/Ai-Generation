@@ -1,14 +1,45 @@
-# Run and deploy your AI Studio app
+# AI Галерея Генератор
 
-This contains everything you need to run your app locally.
+Это веб-приложение для генерации изображений с использованием различных AI-моделей, включая Gemini от Google и модели из Replicate.
 
-## Run Locally
+## Установка и запуск
 
-**Prerequisites:**  Node.js
+Проект состоит из двух частей: фронтенд (React) и бэкенд (Node.js/Express). Поскольку фронтенд использует `importmap`, для него не требуется отдельная сборка. Бэкенд требует установки зависимостей.
+
+### Запуск
+
+1.  **Установка зависимостей бэкенда:**
+    В корневой директории проекта выполните команду:
+    ```bash
+    npm install
+    ```
+2.  **Настройка переменных окружения (локально):**
+    Создайте файл `.env` в корневой папке и добавьте в него ваши API-ключи:
+    ```
+    REPLICATE_API_TOKEN=r8_your_replicate_api_token
+    API_KEY=your_google_gemini_api_key
+    ```
+3.  **Запуск сервера:**
+    ```bash
+    npm start
+    ```
+    Сервер запустится (по умолчанию на порту 3001) и будет обслуживать как API-запросы, так и статические файлы фронтенда. Откройте `http://localhost:3001` в браузере.
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Настройка для развертывания (Render)
+
+Для корректной работы приложения на хостинге, таком как Render, вам необходимо настроить переменные окружения.
+
+1.  **Создайте новый "Web Service" на Render.**
+2.  Подключите ваш репозиторий на GitHub.
+3.  **Настройки сервиса:**
+    *   **Build Command**: `npm install`
+    *   **Start Command**: `npm start`
+4.  **Перейдите в раздел "Environment".**
+5.  **Добавьте следующие переменные окружения:**
+    *   **Key**: `REPLICATE_API_TOKEN`
+    *   **Value**: `ВАШ_КЛЮЧ_ОТ_REPLICATE`
+    *   **Key**: `API_KEY`
+    *   **Value**: `ВАШ_КЛЮЧ_ОТ_GOOGLE_GEMINI`
+
+После сохранения настроек Render автоматически развернет ваше приложение. Фронтенд и бэкенд будут работать вместе в рамках одного сервиса.

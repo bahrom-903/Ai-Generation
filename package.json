@@ -1,22 +1,20 @@
+
 {
-  "name": "anime-gallery-ai-generator",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ai-gallery-backend",
+  "version": "1.0.0",
+  "description": "Backend server for AI Gallery to proxy Replicate requests.",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "@google/genai": "^1.11.0",
-    "jszip": "3.10.1"
-  },
-  "devDependencies": {
-    "@types/node": "^22.14.0",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "replicate": "^0.29.1"
   }
 }
