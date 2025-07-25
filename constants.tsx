@@ -44,7 +44,13 @@ export const ICONS = {
     usdt: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18.5a8.5 8.5 0 110-17 8.5 8.5 0 010 17zm-1.875-5.938h-4v-1.5h4v-3.75h-5.5v-1.5h7.375v8.25h1.5v1.5h-1.5v2h-1.5v-2z"/></svg>,
     steam: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.843 14.125c-1.125 1.25-4.008 2.031-5.78 1.14-.945-.472-.852-1.633.23-2.024 1.133-.406 4.312-.601 5.46-1.5.586-.47.672-1.375-.023-1.782-1.078-.632-3.32-.398-3.32-.398l-3.21 2.898c-1.03.922-.608 1.946 0 2.461 1.734 1.484 7.238.93 7.238.93.985-.047 1.266-1.172.157-1.734zm1.53-4.57c-.773.282-1.704.25-2.414-.14-3.14-.852-4.133-3.14-4.133-3.14s.422.844 2.82 1.633c2.72.633 4.407.024 4.407.024s-.282 1.156-.68 1.625zM12.023 9a3 3 0 110-6 3 3 0 010 6z" /></svg>,
     currencyFree: <path strokeLinecap="round" strokeLinejoin="round" d="M21.125 8.875 12 3.75l-9.125 5.125M21.125 8.875v8.25a2.25 2.25 0 0 1-2.25 2.25H5.125a2.25 2.25 0 0 1-2.25-2.25v-8.25M12 12.75v6.75" />,
-    currencyData: <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 110 18 9 9 0 010-18z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />,
+    currencyData: (
+  <>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 110 18 9 0 010-18z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+  </>
+),
     currencyGold: <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9a9 9 0 119 0zM16.5 18.75a9 9 0 00-9 0m9 0h.008v.008h-.008v-.008zm-9 0h-.008v.008h.008v-.008zM12 9.75V14.25m-2.25-4.5a2.25 2.25 0 012.25-2.25a2.25 2.25 0 012.25 2.25" />,
     currencySilver: <path strokeLinecap="round" strokeLinejoin="round" d="m15.49 10.03-6.98-6.98a.75.75 0 0 0-1.06 1.06l6.98 6.98 2.5-2.5a.75.75 0 0 0-1.44-.38l-1.02 1.84m-3.44-5.02L4.51 3.53a.75.75 0 1 0-1.06 1.06l2.02 2.02" />,
     currencyStar: <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />,
