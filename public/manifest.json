@@ -1,0 +1,65 @@
+{
+  "version": 1.2,
+  "themes": [
+    { 
+      "id": "theme_cosmic_rift", 
+      "name": "Cosmic Rift", 
+      "description": "Глубокий космос со светящимися циановыми акцентами.", 
+      "scope": ["main_app"], 
+      "price": { "currency": "free" }, 
+      "data": { 
+        "bg": "bg-[#0b0f2e]", 
+        "main": "bg-[#1f224f]", 
+        "text": "text-[#e0e1ff]", 
+        "accent": "text-[#00f6ff]", 
+        "accentGlow": "shadow-[0_0_15px_rgba(0,246,255,0.7)]", 
+        "border": "border-[#00f6ff]/50", 
+        "cardBg": "bg-[#1f224f]/80", 
+        "inputBg": "bg-[#0b0f2e]/80" 
+      }
+    },
+    { 
+      "id": "theme_sunken_temple", 
+      "name": "Sunken Temple", 
+      "description": "Древний подводный храм с бирюзовыми и золотыми тонами.", 
+      "scope": ["main_app"], 
+      "price": { "currency": "free" }, 
+      "data": { 
+        "bg": "bg-[#0a2a2e]", 
+        "main": "bg-[#124f56]", 
+        "text": "text-[#c2e0e3]", 
+        "accent": "text-[#ffcb74]", 
+        "accentGlow": "shadow-[0_0_15px_rgba(255,203,116,0.7)]", 
+        "border": "border-[#ffcb74]/50", 
+        "cardBg": "bg-[#124f56]/80", 
+        "inputBg": "bg-[#0a2a2e]/80" 
+      }
+    },
+     { 
+      "id": "theme_arcane_library", 
+      "name": "Arcane Library", 
+      "description": "Магическая библиотека с пергаментными тонами и мистическими фиолетовыми акцентами.", 
+      "scope": ["main_app"], 
+      "price": { "currency": "free" }, 
+      "data": { 
+        "bg": "bg-[#3d324c]", 
+        "main": "bg-[#5c4b73]", 
+        "text": "text-[#f3e0d6]", 
+        "accent": "text-[#dcb6ff]", 
+        "accentGlow": "shadow-[0_0_15px_rgba(220,182,255,0.7)]", 
+        "border": "border-[#dcb6ff]/50", 
+        "cardBg": "bg-[#5c4b73]/80", 
+        "inputBg": "bg-[#3d324c]/80" 
+      }
+    }
+  ],
+  "backgrounds": [
+     { 
+      "id": "bg_space_opera", 
+      "name": "Космическая Опера", 
+      "url": "/backgrounds/space-opera.jpg", 
+      "scope": ["main_app"], 
+      "price": { "currency": "epic", "amount": 15 } 
+    }
+  ]
+}
